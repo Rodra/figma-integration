@@ -6,6 +6,11 @@ Note: This project was created just for educational purposes.
 
 ### Install dependencies
 
+You need to have installed:
+* Yarn > 1.19, https://classic.yarnpkg.com/en/docs/install
+* Ruby > 2.6 and bundler, https://bundler.io/
+* Node > 12.14, https://nodejs.org/es/download/
+
 ```
 bundle
 yarn --cwd client install
