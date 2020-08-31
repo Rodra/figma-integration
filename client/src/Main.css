@@ -3,8 +3,3 @@
   flex-flow: column nowrap;
   flex: auto;
 }
-
-#main .logo {
-  align-self: center;
-  margin: 10px 0 16px;
-}

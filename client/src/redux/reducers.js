@@ -1,70 +1,15 @@
 import { combineReducers } from "redux";
 
-import {
-  SEARCH_STARTED,
-  GET_ARTIST_STARTED,
-  SET_QUERY_TERM,
-  SET_RESULTS,
-  SET_ARTIST,
-  TOKEN_UPDATED,
-  SET_ERROR,
-  SET_IS_LOADING,
-  ADD_TO_FAVORITES,
-  REMOVE_FROM_FAVORITES,
-  SET_ALERT,
-} from "./types";
+import { SET_ERROR, SET_IS_LOADING, SET_ALERT } from "./types";
 
 const INITIAL_STATE = {
-  queryTerm: "",
-  results: null,
-  artist: null,
   isLoading: false,
   error: null,
-  favorites: {},
   alert: null,
 };
 
 const rootReducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
-    case SEARCH_STARTED:
-      return {
-        ...state,
-        results: null,
-        isLoading: true,
-        error: null,
-      };
-    case GET_ARTIST_STARTED:
-      return {
-        ...state,
-        artist: null,
-        isLoading: true,
-        error: null,
-      };
-    case SET_QUERY_TERM:
-      return {
-        ...state,
-        queryTerm: payload,
-      };
-    case SET_RESULTS:
-      return {
-        ...state,
-        results: payload,
-        isLoading: false,
-        error: null,
-      };
-    case SET_ARTIST:
-      return {
-        ...state,
-        artist: payload,
-        isLoading: false,
-        error: null,
-      };
-    case TOKEN_UPDATED:
-      return {
-        ...state,
-        isLoading: false,
-        error: null,
-      };
     case SET_ERROR:
       return {
         ...state,
@@ -75,23 +20,6 @@ const rootReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         isLoading: payload,
-      };
-    }
-    case ADD_TO_FAVORITES: {
-      return {
-        ...state,
-        favorites: { ...state.favorites, ...{ [payload.id]: payload } },
-      };
-    }
-    case REMOVE_FROM_FAVORITES: {
-      const { id } = payload;
-
-      const favorites = { ...state.favorites };
-      delete favorites[id];
-
-      return {
-        ...state,
-        favorites,
       };
     }
     case SET_ALERT: {
