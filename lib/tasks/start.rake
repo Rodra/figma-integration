@@ -1,6 +1,10 @@
 namespace :setup do
+  task :postgres do
+    exec 'docker-compose up -d postgres'
+  end
+
   task :database do
-    exec 'docker-compose up -d postgres && bin/rails db:setup'
+    exec 'bin/rails db:setup'
   end
 end
 
@@ -15,8 +19,11 @@ namespace :start do
   end
 end
 
+desc 'Setup postgres container'
+task postgres: 'setup:postgres'
+
 desc 'Setup development database'
-task setup: 'setup:database'
+task database: 'setup:database'
 
 desc 'Start development server'
 task start: 'start:development'

@@ -80,6 +80,7 @@ const useFigmaTheme = () => {
       console.info("Updating figma theme ...");
       updateFigmaTheme();
     }
+    // eslint-disable-next-line
   }, [figmaButtons, figmaColors, figmaTypographies, figmaBadges, figmaAlerts]);
 
   return figmaTheme;

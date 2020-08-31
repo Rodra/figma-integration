@@ -11,11 +11,11 @@ local: &local
 
 development:
   <<: *local
-  database: spotify_api_development
+  database: figma_integration_api_development
 
 test:
   <<: *local
-  database: spotify_api_test
+  database: figma_integration_api_test
 
 production:
   <<: *default

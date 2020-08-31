@@ -1,6 +1,6 @@
-# Spotify Browser
+# Figma Integration
 
-Note: This project was created just for technical training.
+Note: This project was created just for educational purposes.
 
 ## Setup
 
@@ -11,32 +11,25 @@ bundle
 yarn --cwd client install
 ```
 
-### Add alias in your hosts file
-
-Update your `/etc/hosts` file with the next line
-
-```
-127.0.0.1 app.spotify.test
-```
-
-### Setup one spotify app
-
-Follow [this guide](https://developer.spotify.com/documentation/general/guides/app-settings/) to setup one spotify app and ensure to add `http://app.spotify.test:3000/auth_callback` in your **Redirect URIs** section.
-
 ### Set environment variables
 
 ```
 cp .env-sample .env
 ```
 
-And then complete `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET_ID`, `FIGMA_API_ID` and `FIGMA_FILE_ID` with the correct values.
+Create a Figma account in https://www.figma.com/, and then setup your Figma API ID from your settings (make sure to copy when created before closing settings).
+And then complete `FIGMA_API_ID` with the correct value.
+
+If you want to change your `FIGMA_FILE_ID`, you will need to clone the https://www.figma.com/file/O2BmBEZbGjcpD3pHD2JMmG/kit-UI---Tesis file.
+Customize as you want and then copy the new https://www.figma.com/file/<FIGMA_FILE_ID> from the url and setup in the `.env` file.
 
 ## Run app
 
 For the first time you will need to setup your environment with:
 
 ```
-bundle exec rake setup
+bundle exec rake postgres
+bundle exec rake database
 ```
 
 And then finally you can start the app with:
@@ -45,14 +38,14 @@ And then finally you can start the app with:
 bundle exec rake start
 ```
 
-Navigate to http://app.spotify.test:3000
+Navigate to http://localhost:3000/
 
 ## Run tests
 
 ### Client
 
 ```
-yarn --cwd client test --watchAll=false
+yarn --cwd client test --watchAll=false --passWithNoTests
 ```
 
 ### API
@@ -60,4 +53,3 @@ yarn --cwd client test --watchAll=false
 ```
 bundle exec rake
 ```
-

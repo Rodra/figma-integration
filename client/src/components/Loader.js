@@ -10,9 +10,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  },
-  colorSpotify: {
-    color: theme.palette["bg-spotify"] ? theme.palette["bg-spotify"].main : "primary"
   }
 }));
 
@@ -21,7 +18,7 @@ const Loader = () => {
 
   return (
     <Box className={classes.loader} data-testid="loader">
-      <CircularProgress className={classes.colorSpotify} />
+      <CircularProgress />
     </Box>
   );
 };

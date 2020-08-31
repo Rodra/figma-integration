@@ -1,8 +1,3 @@
-ENV['SPOTIFY_CLIENT_ID'] = 'testing'
-ENV['SPOTIFY_CLIENT_SECRET_ID'] = 'testing'
-ENV['SPOTIFY_URL'] = 'https://api.spotify.test'
-ENV['SPOTIFY_APP_URL'] = 'http://app.spotify.test'
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

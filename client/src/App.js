@@ -9,7 +9,7 @@ import { FigmaThemeProvider } from "./figma";
 import { Provider } from "react-redux";
 import { store } from "./redux";
 
-import Router from "./Router";
+import Main from "./Main";
 import "./App.css";
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
         <Container id="container" fixed data-testid="main-container">
           <Box id="box">
             <Provider store={store}>
-              <Router />
+              <Main />
             </Provider>
           </Box>
         </Container>
